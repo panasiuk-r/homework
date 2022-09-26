@@ -84,7 +84,7 @@ def main():
             events[i].wait()
     print("Done")
     print(x2-x1)
-
+    t2=-time()
 
 if __name__=="__main__":
     main()
