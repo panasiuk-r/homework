@@ -36,7 +36,6 @@ class MyClass2:
     def setF2(self, f2):
         self.__f2=f2
 
-
 def fu1(MC, K1, lock, event):
     try:
         lock.acquire()
