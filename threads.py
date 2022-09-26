@@ -55,6 +55,7 @@ def fu1(MC, K1, lock, event):
     except:
         print("An exception in locker occurred")
 
+
 def main():
     x1 = time()
     K1=random.randint(10000,20000)
