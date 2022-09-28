@@ -55,13 +55,13 @@ def fu1(MC, K1, lock, event):
     except:
         print("An exception in locker occurred")
 
+
 def main():
     x1 = time()
     K1=random.randint(10000,20000)
     K2=random.randint(10000,20000)
     N=random.randint(10,20)
     print("N=",N)
-    tsize=0
     events=[]
     thrs=[]
     e=0;
@@ -71,20 +71,18 @@ def main():
         e=threading.Event()
         events.append(e)
         if i < N/2:
-            thr=Thread(target = fu1, args = (MC1,K2,locker,e,))
+            thr=Thread(target = fu1, args = (MC1,K1,locker,e,))
         elif i>= N/2:
             thr=Thread(target = fu1, args = (MC2,K2,locker,e,))
         thrs.append(thr)
         thr.start()
-    x2=time()
     print("almost there")
     for i in range(N):
         if events[i].is_set()!=True:
             events[i].wait()
     print("Done")
+    x2=time()
     print(x2-x1)
-    t2=-time()
 
 if __name__=="__main__":
     main()
-
